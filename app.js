@@ -5,21 +5,17 @@ var config = require('./config');
 
 */
 
+//   внимание: параметры уточняйте в ЛК услуги
 var config = {
-    host: 'sms.tele2.ru',
-    port: 1111,
-    system_id: 'amXXXXXXX',
-    password: 'password'
+    host: 'sms.tele2.ru',       //адрес smpp сервера
+    port: 1111,                 //порт smpp сервера
+    system_id: 'amXXXXXXX',     //id рассылки
+    password: 'password'        //пароль рассылки
 };
 
 var session = new smpp.Session({host: config.host, port: config.port});
 
 smpp.encodings.default = 'ASCII';
-
-session.on('error', function (err) {
-    console.log('error:', err);
-});
-console.log('system_id', config.system_id);
 
 session.bind_transceiver({
     system_id: config.system_id,
@@ -30,8 +26,8 @@ session.bind_transceiver({
         // Successfully bound
         session.submit_sm({                
                 source_addr_npi: 0,
-                source_addr_ton: 5,
-                source_addr: 'Mobilon',
+                source_addr_ton: 5,      // ton & npi - это магические коды : )
+                source_addr: 'Mobilon',  // из заранее одобренных имен отправителей
                 dest_addr_ton: 1,
                 dest_addr_npi: 1,
                 destination_addr: '79135292926',
