@@ -1,6 +1,16 @@
 var smpp = require('smpp');
 
+/*
 var config = require('./config');
+
+*/
+
+var config = {
+    host: 'sms.tele2.ru',
+    port: 1111,
+    system_id: 'amXXXXXXX',
+    password: 'password'
+};
 
 var session = new smpp.Session({host: config.host, port: config.port});
 
