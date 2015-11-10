@@ -8,6 +8,9 @@
 http://krasnoyarsk.tele2.ru/business/services/udobnaya-svyaz/biznes-sms/
 
 
+Подробнее смотри app.js
+
+
 ## Зависимости
 
 nodejs, npm
